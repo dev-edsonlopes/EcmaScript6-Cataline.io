@@ -1,57 +1,18 @@
 {
-  "name": "todo-projeto",
+  "name": "ecmascript6-cataline.io",
   "version": "1.0.0",
-  "private": true,
-  "description": "��#\u0000 \u0000t\u0000o\u0000d\u0000o\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000t\u0000o\u0000\r\u0000 \u0000",
-  "author": "",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "dev": "json-server --watch db.json --port 3333"
-  },
+  "description": "",
   "main": "index.js",
-  "dependencies": {
-    "axios": "^1.4.0",
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+  "scripts": {
+    "dev": "babel ./src/main.js -o ./public/bundle.js -w"
+
   },
-  "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "json-server": "^0.17.3",
-    "prettier": "^2.4.1"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended",
-      "plugin:prettier/recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ],
-  "_id": "todo-projeto@1.0.0",
   "keywords": [],
+  "author": "",
   "license": "ISC",
-  "readme": "ERROR: No README data found!"
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5"
+  }
 }
