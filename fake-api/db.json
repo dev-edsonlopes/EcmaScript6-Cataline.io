@@ -1,0 +1,14 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "text": "Estudando",
+            "done": true
+        },
+        {
+            "id": 2,
+            "text": "Fazer entrega na Rappi",
+            "done": false
+        }
+    ]
+}

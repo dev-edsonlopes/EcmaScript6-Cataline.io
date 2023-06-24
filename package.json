@@ -2,17 +2,12 @@
   "name": "ecmascript6-cataline.io",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "dev": "babel ./src/main.js -o ./public/bundle.js -w"
-
+    "dev": "webpack serve --mode=development",
+    "build":"webpack --mode=production"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "^7.22.5",
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5"
-  }
+  "license": "ISC"
 }
