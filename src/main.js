@@ -1,29 +1,48 @@
 import Todos from "./api/todos";
+import './assets/css/main.css'
+import { createApp } from "vue";
+const apiTodos = new Todos()
 
-async function exec() {
-    const todos = new Todos()
-    const response = await todos.index()
-    console.log("---- Listar ----")
-    console.log(response)
+const app = createApp({
+    data() {
+        return {
+            todos: [],
+            form: {
+                text: '',
+                done: false
+            },
+        }
+    },
+   created() {
+        this.fetchTodos()
+    },
+    methods: {
+        async fetchTodos() {
+            this.todos = await apiTodos.index()
+            console.log(this.todos)
+        },
+        async createTodo() {
+            const data = await apiTodos.store(this.form)
+            this.todos.push(data)
+            this.form.text = ''
+            this.form.done = false
+        },
+        async toggleTodoStatus(todo) {
+            const data = await apiTodos.update({
+                ...todo,
+                done: !todo.done,
+            })
 
-    const create = await todos.store({ 
-        text: "Passeio com DOG", 
-        done: false 
-    })
-    console.log("---- Criar ----")
-    console.log(create)
+            const index = this.todos.findIndex(({ id }) => id === data.id)
+            this.todos[index] = data
+        },
+        async destroyTodo(id) {
+            await apiTodos.destroy({ id })
+            const index = this.todos.findIndex((todo) => todo.id === id)
+            this.todos.splice(index, 1)
+        }
 
-    const update = await todos.update({ 
-        id: 3,
-        text: "Passear com o DOG de 14hrs",
-        done: false
-    })
-    console.log("---- Atualizar ----")
-    console.log(update)
-    
-    const del = await todos.destroy({ id: 3})
-    console.log("---- Apagar ----")
-    console.log(response)
-}
+    }
+})
 
-exec()
+app.mount('#app')
